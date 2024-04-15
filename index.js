@@ -38,7 +38,7 @@ async function generateLogo() {
 
     ]);
 
-    const answers = await inquirer.prompt(questions);
+    const answers = inquirer.prompt(questions);
     return answers;
 
 }
@@ -58,7 +58,7 @@ function createLogo(answers) {
     
 }
 
-// Steps the program begins from start to finish
+// Steps the program initializes from start to finish
 async function init(){
     try {
         const answers = await generateLogo();
