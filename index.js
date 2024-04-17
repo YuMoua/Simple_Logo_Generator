@@ -3,6 +3,7 @@ console.log('hello');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// let answers = []
 
 async function generateLogo() {
     // Prompt user for input
@@ -38,12 +39,14 @@ async function generateLogo() {
 
     ]);
 
-    const answers = inquirer.prompt(questions);
+    const answers = questions;
+    console.log(answers);
     return answers;
 
 }
 
 function createLogo(answers) {
+    console.log(answers);
     const { text, textColor, shape, shapeColor } = answers;
     const newLogo = {
         'circle': `<circle cx="50" cy="50" r="40" fill="${shapeColor}" />`,
@@ -60,14 +63,14 @@ function createLogo(answers) {
 
 // Steps the program initializes from start to finish
 async function init(){
-    try {
+    // try {
         const answers = await generateLogo();
         const logoContent = createLogo(answers);
         fs.writeFileSync('logo.svg', logoContent);
         console.log('Logo is generated and saved as logo.svg')
-    } catch (error) {
-        console.error('failed to generate logo: ', error);
-    }
+    // } catch (error) {
+    //     console.error('failed to generate logo: ', error);
+    // }
 
 }
 
