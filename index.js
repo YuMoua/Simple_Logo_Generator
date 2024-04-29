@@ -11,7 +11,7 @@ async function generateLogo() {
         {
             type: 'input',
             name: 'text',
-            message: 'Enter the text for the logo:',
+            message: 'Enter the text for the logo within three words:',
             validate: function (input) {
                 const words = input.split(/\s+/);
                 if (words.length > 3) {
